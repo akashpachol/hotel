@@ -1,15 +1,12 @@
-
-import {createStore,combineReducers,applyMiddleware} from 'redux'
-import thunk from "redux-thunk"
-import {restaurantlistreducer} from './reducer/restaurantreducer'
+import {legacy_createStore as createStore,combineReducers,applyMiddleware} from "redux"
+import thunk from 'redux-thunk'
+import {listRestaurantReducer}from './Reducer/restaurantsReducer'
 
 const reducers=combineReducers({
-    restaurantList:restaurantlistreducer,
-});
+ restaurantList:listRestaurantReducer
+})
+const middleware=[thunk]
 
-const middleware=[thunk] 
-
-
-const store=createStore(reducers,applyMiddleware(...middleware));
+const store=createStore(reducers,applyMiddleware(...middleware))
 
 export default store
